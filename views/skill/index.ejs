@@ -1,0 +1,35 @@
+<h1>SKILLLLLLLLLS</h1> 
+
+<a href="/skill/createSkill">Add A New Skill</a>
+
+<table> 
+    <tr>
+        <th>Skill</th> 
+        <th>Description</th>
+        <th>Added:</th>
+    </tr> 
+
+    <% skill.forEach(function(skill) { %>
+    <tr>
+        <td> 
+            <a href="/skill/detailSkill?id=<%=skill.id%>">
+            <%=skill.skill %> </a>
+        </td> 
+        <td> <%=skill.description %> </td> 
+        <td> <%=moment(skill.createdAt).fromNow() %> </td>
+
+        <td>
+            <form method="POST" action="/skill/editSkill?id=<%=skill.id %>&_method=GET">
+                <button type="submit">Edit</button>
+            </form>
+        </td> 
+       <td> 
+           <form method="POST" action="/skill/delete?id=<%= skill._id%>&_method=DELETE">
+      <button type="submit">Delete</button>
+    </form>
+       </td>
+        
+    </tr>
+
+    <% }) %>
+</table>

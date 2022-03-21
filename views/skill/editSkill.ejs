@@ -1,0 +1,21 @@
+<h1> 
+    Edit Skill
+</h1> 
+
+<form method="post" action="/skill/update?_method=PUT">
+
+    <div> 
+        <label>Skill</label> 
+        <input type = "text" name="skill" value="<%=skill.skill %>">
+    </div> 
+
+    <div> 
+        <label>Description</label>
+        <textarea name="description" value="<%=skill.description%>"> </textarea>
+    </div> 
+
+    <input type = "hidden" name="id" value="<%= skill._id%>">
+
+    <button type="submit">Edit</button>
+
+</form>
